@@ -14,14 +14,16 @@ public class Meal {
     private String name;
     private String description;
     private double price;
+    private boolean isSummerMeal;
 
     @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ingredient> ingredients;
 
-    public Meal(String name, String description, double price) {
+    public Meal(String name, String description, double price, boolean isSummerMeal) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.isSummerMeal = isSummerMeal;
     }
 
     public Meal() {
@@ -65,5 +67,20 @@ public class Meal {
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public boolean isSummerMeal() {
+        return isSummerMeal;
+    }
+
+    public void setSummerMeal(boolean summerMeal) {
+        isSummerMeal = summerMeal;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price;
     }
 }

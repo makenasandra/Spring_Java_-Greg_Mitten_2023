@@ -42,24 +42,9 @@ public class MealController {
         return ResponseEntity.ok(meal);
     }
 
-    @PostMapping("/meal-many-to-one")
-    public ResponseEntity<Meal> mealManyToOne() {
-        Meal meal = new Meal("Xiaolongbao", "Soup dumplings", 10.0);
-        Ingredient ingredient = new Ingredient("Dumpling", true, true, false, true);
-
-        ingredient.setMeal(meal);
-
-        meal.setIngredients(Arrays.asList(ingredient));
-
-        mealService.addMeal(meal);
-
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/test")
-    public ResponseEntity<String> test() {
-        mealService.test();
-        return ResponseEntity.ok("test");
+    @GetMapping("/summer-meals")
+    public ResponseEntity<List<Meal>> getSummerMeals() {
+        return ResponseEntity.ok(mealService.getSummerMeals());
     }
 
 }
