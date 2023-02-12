@@ -54,7 +54,7 @@ public class MealService {
                     .asJson().getBody().getObject();
 
             return response.getJSONObject("current_weather").getDouble("temperature");
-        } catch (UnirestException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

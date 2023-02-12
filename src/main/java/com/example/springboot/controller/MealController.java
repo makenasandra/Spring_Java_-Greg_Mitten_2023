@@ -3,6 +3,7 @@ package com.example.springboot.controller;
 import com.example.springboot.model.Ingredient;
 import com.example.springboot.model.Meal;
 import com.example.springboot.service.MealService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,6 +23,7 @@ public class MealController {
     }
 
     @GetMapping("/list")
+    @ApiOperation(value = "Get all meals", response = List.class)
     public ResponseEntity<List<Meal>> getMeals() {
         return ResponseEntity.ok(mealService.getMeals());
     }
