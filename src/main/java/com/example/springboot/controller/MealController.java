@@ -2,7 +2,6 @@ package com.example.springboot.controller;
 
 import com.example.springboot.model.Ingredient;
 import com.example.springboot.model.Meal;
-import com.example.springboot.service.MealService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
