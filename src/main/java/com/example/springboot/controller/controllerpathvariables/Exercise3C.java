@@ -1,7 +1,6 @@
 package com.example.springboot.controller.controllerpathvariables;
 
 import com.example.springboot.model.Meal;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class Exercise3 {
-
+public class Exercise3C {
     Meal meal1 = new Meal("Grilled Chicken Salad", "A healthy salad with grilled chicken breast, mixed greens, and balsamic vinaigrette.", 12.99, true);
     Meal meal2 = new Meal("Margherita Pizza", "Classic Margherita pizza with fresh tomatoes, mozzarella cheese, and basil.", 10.99, false);
     Meal meal3 = new Meal("Tropical Fruit Smoothie Bowl", "A refreshing smoothie bowl with tropical fruits, granola, and honey drizzle.", 8.49, true);
@@ -21,7 +19,7 @@ public class Exercise3 {
     Meal meal6 = new Meal("BBQ Pulled Pork Sandwich", "Slow-cooked pulled pork with barbecue sauce served on a bun.", 11.49, false);
     Meal meal7 = new Meal("Caprese Salad", "A classic Caprese salad with ripe tomatoes, fresh mozzarella, basil, and balsamic glaze.", 9.99, true);
     List<Meal> meals = List.of(meal1, meal2, meal3, meal4, meal5, meal6, meal7);
-    @GetMapping("/meal/description-match/{phrase}")
+    @GetMapping(value= "/meal/description-match/{phrase}")
     public ResponseEntity<?> getMealByDescription(@PathVariable String phrase){
         Meal mealThatMarches = null;
         for (Meal m:meals) {
