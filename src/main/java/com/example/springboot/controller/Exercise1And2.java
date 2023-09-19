@@ -9,10 +9,6 @@ import java.util.Date;
 
 @RestController
 public class Exercise1And2 {
-	@GetMapping(value = "/good-morning")
-	public ResponseEntity<String> index() {
-		return ResponseEntity.ok("Good morning!");
-	}
 
 //	Exercise 1
 	@GetMapping(value = "/hello")

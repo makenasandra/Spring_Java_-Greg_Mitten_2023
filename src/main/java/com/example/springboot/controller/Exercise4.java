@@ -13,7 +13,7 @@ public class Exercise4 {
         if(new Random().nextBoolean()){
             return ResponseEntity.status(200).build();
         } else {
-            return ResponseEntity.status(400).build();
+            return ResponseEntity.badRequest().build();
         }
 
     }

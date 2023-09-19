@@ -14,20 +14,4 @@ public class HelloController {
 		return ResponseEntity.ok("Good morning!");
 	}
 
-//	Exercise 1
-	@GetMapping(value = "/hello")
-	public String sayHello() {
-		return "Hello World!";
-	}
-
-	//Exercise 2
-	@GetMapping(value=  "/greeting" )
-	public ResponseEntity<String> greeting (){
-		if(new Date().getHours() > 11){
-			return ResponseEntity.status(HttpStatus.OK).body("Good Afternoon!");
-		}
-		return ResponseEntity.status(HttpStatus.OK).body("Good Morning!");
-	}
-
-
 }
