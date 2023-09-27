@@ -41,4 +41,5 @@ public class MyMealController {
         myMealService.deleteMeal(name);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
 }
