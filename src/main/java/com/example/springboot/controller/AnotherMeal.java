@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.model.Meal;
 import com.example.springboot.model.MyMeal;
 import com.example.springboot.service.AnotherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,12 @@ public class AnotherMeal {
 
     @GetMapping("/winter-meals")
     public ResponseEntity<List<MyMeal>> getAllWinterMeals(){
-        return ResponseEntity.ok(anotherService.getAllSummerMeals());
+        return ResponseEntity.ok(anotherService.getAllWinterMeals());
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<List<Meal>> getMeals(){
+        return ResponseEntity.ok(anotherService.test());
     }
 
 }

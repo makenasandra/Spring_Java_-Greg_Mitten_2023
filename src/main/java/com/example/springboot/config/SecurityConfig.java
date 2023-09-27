@@ -36,7 +36,8 @@ public class SecurityConfig {
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> {
                     try {
-                        authorize.requestMatchers("/api/meal/**").hasRole("ADMIN")
+                        authorize.requestMatchers("/my-api/**", "/api/meal/**", "/temp-meal")
+                                .hasRole("ADMIN")
                                 .anyRequest().authenticated()
                                 .and().httpBasic();
                     } catch (Exception e) {

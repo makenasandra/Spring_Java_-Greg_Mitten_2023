@@ -17,6 +17,6 @@ public interface AnotherMealDao extends JpaRepository<MyMeal, Long> {
 
     List<MyMeal> findAllByPriceLessThanAndAndDescription(double price, String description );
 
-    List<MyMeal> findAllByIsSummerMeal (boolean isSummer);
+    List<MyMeal> findByIsSummerMeal (boolean isSummer);
 
 }
