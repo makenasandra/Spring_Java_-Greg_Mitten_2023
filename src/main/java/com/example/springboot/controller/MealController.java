@@ -28,25 +28,27 @@ public class MealController {
         return ResponseEntity.ok(mealService.getMeals());
     }
 
-    @PutMapping("/meal")
+    @PutMapping("/")
     public ResponseEntity<Meal> addMeal(@RequestBody Meal meal) {
         mealService.addMeal(meal);
         return ResponseEntity.ok(meal);
     }
 
-    @DeleteMapping("/meal/{id}")
-    public ResponseEntity<Meal> deleteMeal(@PathVariable long id) {
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "Delete a specific meal by a meal Id", response = String.class)
+    public ResponseEntity<?> deleteMeal(@PathVariable long id) {
         mealService.deleteMeal(id);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/meal")
+    @PostMapping("/")
     public ResponseEntity<Meal> updateMeal(@RequestBody Meal meal) {
         mealService.updateMeal(meal);
         return ResponseEntity.ok(meal);
     }
 
     @GetMapping("/summer-meals")
+    @ApiOperation(value = "A meal can only be served when the temp is a certain level", response = Meal.class)
     public ResponseEntity<List<Meal>> getSummerMeals() {
         return ResponseEntity.ok(mealService.getSummerMeals());
     }
