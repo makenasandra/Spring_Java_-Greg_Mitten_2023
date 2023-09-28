@@ -3,6 +3,8 @@ package com.example.springboot.controller;
 import com.example.springboot.model.Ingredient;
 import com.example.springboot.model.Meal;
 import com.example.springboot.service.MealService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,7 +19,7 @@ import java.util.List;
 
 public class MealController {
     private MealService mealService;
-
+    private final static Logger logger = LoggerFactory.getLogger(MealController.class);
     @Autowired
     public MealController(MealService mealService) {
         this.mealService = mealService;
@@ -25,7 +27,17 @@ public class MealController {
 
     @GetMapping("/list")
     public ResponseEntity<List<Meal>> getMeals() {
-        return ResponseEntity.ok(mealService.getMeals());
+        logger.info("Request received to get all meals");
+        List<Meal> meals = mealService.getMeals();
+        meals = null;
+        if(meals == null){
+            logger.error("Found null meals");
+            return ResponseEntity.internalServerError().build();
+        } else if (meals.isEmpty()) {
+            logger.warn("No meals found");
+
+        }
+        return ResponseEntity.ok(meals);
     }
 
     @PutMapping("/meal")
